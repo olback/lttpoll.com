@@ -1,0 +1,43 @@
+drop table if exists votes;
+drop table if exists answers;
+drop table if exists questions;
+
+drop function if exists make_slug;
+CREATE FUNCTION make_slug() RETURNS text AS $$
+DECLARE
+    new_slug text;
+    done bool;
+BEGIN
+    done := false;
+    WHILE NOT done LOOP
+        new_slug := substring(md5(''||now()::text||random()::text), 0, 8);
+        done := NOT exists(SELECT 1 FROM my_table WHERE uid=new_slug);
+    END LOOP;
+    RETURN new_slug;
+END;
+$$ LANGUAGE PLPGSQL VOLATILE;
+
+create table questions (
+    id bigint primary key generated always as identity,
+    slug char(8) not null unique default make_slug(),
+    text varchar(255) not null,
+    expires timestamp default null
+);
+
+create table answers (
+    id bigint primary key generated always as identity,
+    question bigint not null,
+    text varchar(255) not null,
+    constraint fk_question
+        foreign key (question)
+            references questions(id)
+);
+
+create table votes (
+    id bigint primary key generated always as identity,
+    answer bigint not null,
+    voter char(16) not null,
+    constraint fk_answer
+        foreign key (answer)
+            references answers(id)
+);
