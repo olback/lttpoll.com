@@ -1,6 +1,26 @@
+begin transaction;
+
 drop table if exists votes;
 drop table if exists answers;
 drop table if exists questions;
+
+drop function if exists random_string;
+create function random_string(length integer) returns text as
+$$
+declare
+  chars text[] := '{0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z}';
+  result text := '';
+  i integer := 0;
+begin
+  if length < 0 then
+    raise exception 'Given length cannot be less than 0';
+  end if;
+  for i in 1..length loop
+    result := result || chars[1+random()*(array_length(chars, 1)-1)];
+  end loop;
+  return result;
+end;
+$$ language plpgsql;
 
 drop function if exists make_slug;
 CREATE FUNCTION make_slug() RETURNS text AS $$
@@ -10,8 +30,8 @@ DECLARE
 BEGIN
     done := false;
     WHILE NOT done LOOP
-        new_slug := substring(md5(''||now()::text||random()::text), 0, 8);
-        done := NOT exists(SELECT 1 FROM my_table WHERE uid=new_slug);
+        new_slug := random_string(8);
+        done := NOT exists(SELECT 1 FROM questions WHERE slug=new_slug);
     END LOOP;
     RETURN new_slug;
 END;
@@ -35,9 +55,21 @@ create table answers (
 
 create table votes (
     id bigint primary key generated always as identity,
+    question bigint not null,
     answer bigint not null,
     voter char(16) not null,
     constraint fk_answer
         foreign key (answer)
-            references answers(id)
+            references answers(id),
+    constraint fk_question
+        foreign key (question)
+            references questions(id),
+    constraint unique_voter
+      unique (question, voter)
 );
+
+--insert into questions (text) values ('test?');
+--select * from questions;
+
+commit
+--rollback

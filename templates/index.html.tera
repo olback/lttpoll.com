@@ -1,0 +1,44 @@
+{% extends "base" %}
+
+{% block title %}
+lttpoll.cum
+{% endblock title %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/assets/css/index.min.css">
+<script src="/assets/js/index.js"></script>
+<meta property="og:title" , content="lttpoll.com">
+<!-- <meta property="og:image" , content="https://lttpoll.com/icon.png"> -->
+<meta property="og:url" , content="https://lttpoll.com">
+<meta property="og:description" , content="Create simple polls">
+{% endblock head %}
+
+{% block content %}
+<main>
+    <div class="content">
+        <h2>Create new poll</h2>
+        <form action="" method="post">
+            <div class="question-row">
+                <label for="question">Question</label>
+                <input type="text" name="question" id="question">
+            </div>
+            <div id="answers">
+                <div class="answer-row">
+                    <label for="answer-1">Answer 1</label>
+                    <input type="text" name="answer[]" id="answer-1">
+                </div>
+                <div class="answer-row">
+                    <label for="answer-2">Answer 2</label>
+                    <input type="text" name="answer[]" id="answer-2">
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="button" id="row-add" title="Add row">+</button>
+                <button type="button" id="row-del" title="Remove row">-</button>
+                <button type="submit" id="submit" title="Submit poll">Submit</button>
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock content %}

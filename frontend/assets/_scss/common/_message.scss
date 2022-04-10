@@ -1,0 +1,19 @@
+div.message {
+    padding: 1rem;
+
+    &.kind-ok {
+        background-color: greenyellow;
+    }
+
+    &.kind-warning {
+        background-color: #ff5500;
+    }
+
+    &.kind-error {
+        background-color: #ff3333;
+    }
+
+    button {
+        float: right;
+    }
+}

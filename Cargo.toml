@@ -6,4 +6,11 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rocket = { git = "https://github.com/olback/Rocket.git", branch = "pg-tls" }
+rocket = { git = "https://github.com/olback/Rocket.git", branch = "pg-tls", features = [ "json" ] }
+rocket_sync_db_pools= { git = "https://github.com/olback/Rocket.git", branch = "pg-tls", features = [ "postgres_pool" ] }
+rocket_dyn_templates = { git = "https://github.com/olback/Rocket.git", branch = "pg-tls", features = [ "tera" ], default-features = false }
+serde = { version = "1", features = [ "derive" ] }
+
+[features]
+default = [ "db-tls" ]
+db-tls = [ "rocket_sync_db_pools/postgres_pool_tls" ]

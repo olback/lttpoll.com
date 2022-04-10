@@ -1,0 +1,13 @@
+header {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 1;
+    background-color: $main;
+
+    h1 {
+        margin: 0;
+        padding: 1rem;
+        color: $accent;
+        text-transform: uppercase;
+    }
+}

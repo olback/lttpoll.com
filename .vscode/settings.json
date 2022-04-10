@@ -1,0 +1,19 @@
+{
+    "es6-css-minify.minifyOnSave": "no",
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "compressed",
+            "extensionName": ".min.css",
+            "savePath": "/frontend/assets/css"
+        }
+    ],
+    "liveSassCompile.settings.autoprefix": [
+        "> 1%"
+    ],
+    "liveSassCompile.settings.excludeList": [
+        "**/node_modules/**",
+        ".vscode/**",
+        "assets/css/vendor/**"
+    ],
+    "liveServer.settings.root": "/frontend"
+}

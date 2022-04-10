@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    {% endblock head %}
+</head>
+
+<body>
+    {% if message %}
+    <div class="message kind-{{ message.kind }}">
+        <span>{{ message.msg }}</span>
+        <button onclick="this.parentElement.style.display='none'">Close</button>
+    </div>
+    {% endif %}
+    <div class="container">
+        <header>
+            <h1>lttpoll.com</h1>
+        </header>
+
+        {% block content %}
+        {% endblock content %}
+
+        <footer>
+            <div class="left">
+                <span class="creator">
+                    <a href="https://github.com/olback/lttpoll.com" title="Contribute on Github">lttpoll.com</a>
+                    is created by <a href="https://twitter.com/mrolback">@MrOlback</a>
+                </span>
+                <span class="tiny">
+                    Not affiliated with <a href="https://linusmediagroup.com" title="Linus Media Group">Linus Media
+                        Group</a>
+                    or <a href="https://linustechtips.com" title="Linus Tech Tips">Linus Tech Tips</a>
+                </span>
+            </div>
+            <div class="right">
+                <a href="https://www.floatplane.com/channel/linustechtips/videos" title="Floatplane">
+                    <img src="/assets/img/floatplane.png" alt="Floatplane logo">
+                </a>
+                <a href="https://lttstore.com" title="Linus Tech Tips Store">
+                    <img src="/assets/img/ltt.png" alt="LTT logo">
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

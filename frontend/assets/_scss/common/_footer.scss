@@ -1,0 +1,53 @@
+footer {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 3;
+    background-color: $main;
+    color: $background;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: max-content auto max-content;
+
+    div.left {
+        grid-column: 1;
+
+        span {
+            display: block;
+
+            a {
+                color: inherit;
+                text-decoration: none;
+                transition: color ease-in-out .1s;
+
+                &:hover {
+                    color: $accent;
+                }
+            }
+
+            &.creator {
+                margin-bottom: .3rem;
+            }
+
+            &.tiny {
+                font-size: small;
+            }
+        }
+    }
+
+    div.right {
+        grid-column: 3;
+        display: grid;
+        grid-template-columns: repeat(2, min-content);
+        column-gap: .75rem;
+
+        a {
+            align-self: center;
+            max-height: 2rem;
+
+            img {
+                max-height: inherit;
+            }
+        }
+    }
+
+}
