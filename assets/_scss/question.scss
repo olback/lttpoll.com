@@ -1,0 +1,49 @@
+@import 'common/base';
+
+main[data-vote-enabled=true] {
+    form.answer-row {
+        cursor: pointer;
+    }
+}
+
+main {
+    grid-column: 2;
+    grid-row: 3;
+    justify-items: center;
+    justify-content: stretch;
+    display: grid;
+
+    div.content {
+        align-self: center;
+        display: grid;
+        grid-template-columns: auto;
+        row-gap: 1rem;
+        width: 100%;
+        max-width: 1000px;
+
+        h2 {
+            font-size: 2rem;
+            color: $main;
+            margin-top: 0;
+        }
+
+        form.answer-row {
+            display: grid;
+            grid-template-columns: auto;
+            row-gap: .25rem;
+
+            h3 {
+                margin: 0;
+            }
+
+            span.bar {
+                // width: 50%;
+                background-color: $accent;
+                color: $main;
+                font-size: .75rem;
+                padding: .25rem;
+            }
+        }
+    }
+
+}

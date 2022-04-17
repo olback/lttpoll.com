@@ -3,7 +3,7 @@ address = "0.0.0.0"
 port = 5000
 ident = "lttpoll.com"
 log_level = "normal"
-limits = { forms = 32768 }
+limits = { forms = 4096 }
 
 [default.databases.lttpoll]
 url = "postgresql://lttpoll:MFC1IaNHPlCrlKZQ2VZl27p6OhK24v7t4EgBJ9Ya15lNkCG2@localhost:54320/lttpoll"

@@ -1,0 +1,41 @@
+{% extends "base" %}
+
+{% block title %}
+{{ data.question.text }} - LTTPOLL.COM
+{% endblock title %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/assets/css/question.min.css">
+<script src="/assets/js/question.js"></script>
+<meta property="og:title" content="lttpoll.com">
+<!-- <meta property="og:image" content="https://lttpoll.com/icon.png"> -->
+<meta property="og:url" content="https://lttpoll.com/{{ data.question.slug }}">
+<meta property="og:description" content="{{ data.question.text }}">
+{% endblock head %}
+
+{% block content %}
+<main data-vote-enabled="{{ data.can_vote }}">
+    <div class="content">
+        <h2>{{data.question.text}}</h2>
+
+        {% for ans in data.answers %}
+        <form action="/{{ data.question.slug }}/{{ ans.id }}" method="post" class="answer-row">
+            <h3>{{ ans.text }}</h3>
+            <span>{{ ans.votes }} votes</span>
+            {% if data.total_votes == 0 %}
+            <span class="bar" style="width: 0%;">
+                0%
+            </span>
+            {% else %}
+            <span class="bar" style="width: {{ (ans.votes / data.total_votes) * 100 }}%">
+                {{ (ans.votes / data.total_votes) * 100 | round }}%
+            </span>
+            {% endif %}
+
+        </form>
+        {% endfor %}
+
+    </div>
+</main>
+{% endblock content %}

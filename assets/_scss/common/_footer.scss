@@ -1,7 +1,7 @@
 footer {
     grid-column-start: 1;
     grid-column-end: 4;
-    grid-row: 3;
+    grid-row: 4;
     background-color: $main;
     color: $background;
     padding: 1rem;
@@ -13,6 +13,7 @@ footer {
 
         span {
             display: block;
+            font-size: small;
 
             a {
                 color: inherit;
@@ -29,7 +30,7 @@ footer {
             }
 
             &.tiny {
-                font-size: small;
+                font-size: xx-small;
             }
         }
     }

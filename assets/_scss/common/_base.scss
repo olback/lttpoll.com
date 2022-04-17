@@ -18,8 +18,8 @@ body {
         display: grid;
         height: 100vh;
         grid-template-columns: 25vw auto 25vw;
-        grid-template-rows: min-content auto min-content;
-        row-gap: 1rem;
+        grid-template-rows: min-content min-content auto min-content;
+        // row-gap: 1rem;
         // background-color: $main;
     }
 

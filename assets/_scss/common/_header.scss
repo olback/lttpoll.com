@@ -1,7 +1,7 @@
 header {
     grid-column-start: 1;
     grid-column-end: 4;
-    grid-row: 1;
+    grid-row: 2;
     background-color: $main;
 
     h1 {
@@ -9,5 +9,11 @@ header {
         padding: 1rem;
         color: $accent;
         text-transform: uppercase;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
     }
 }

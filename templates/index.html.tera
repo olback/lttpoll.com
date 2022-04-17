@@ -1,17 +1,17 @@
 {% extends "base" %}
 
 {% block title %}
-lttpoll.cum
+LTTPOLL.COM
 {% endblock title %}
 
 {% block head %}
 {{ super() }}
 <link rel="stylesheet" href="/assets/css/index.min.css">
 <script src="/assets/js/index.js"></script>
-<meta property="og:title" , content="lttpoll.com">
-<!-- <meta property="og:image" , content="https://lttpoll.com/icon.png"> -->
-<meta property="og:url" , content="https://lttpoll.com">
-<meta property="og:description" , content="Create simple polls">
+<meta property="og:title" content="lttpoll.com">
+<!-- <meta property="og:image" content="https://lttpoll.com/icon.png"> -->
+<meta property="og:url" content="https://lttpoll.com">
+<meta property="og:description" content="Create simple polls">
 {% endblock head %}
 
 {% block content %}

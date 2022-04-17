@@ -1,5 +1,7 @@
 div.message {
     padding: 1rem;
+    grid-column-start: 1;
+    grid-column-end: 4;
 
     &.kind-ok {
         background-color: greenyellow;
@@ -15,5 +17,9 @@ div.message {
 
     button {
         float: right;
+        border-radius: 0;
+        background-color: transparent;
+        border-color: $main;
+        cursor: pointer;
     }
 }

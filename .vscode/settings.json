@@ -4,7 +4,7 @@
         {
             "format": "compressed",
             "extensionName": ".min.css",
-            "savePath": "/frontend/assets/css"
+            "savePath": "/assets/css"
         }
     ],
     "liveSassCompile.settings.autoprefix": [
@@ -14,6 +14,5 @@
         "**/node_modules/**",
         ".vscode/**",
         "assets/css/vendor/**"
-    ],
-    "liveServer.settings.root": "/frontend"
+    ]
 }
